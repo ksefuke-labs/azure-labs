@@ -82,7 +82,6 @@ resource "azurerm_kubernetes_flux_configuration" "main" {
   kustomizations {
     name                       = "infra-configs"
     path                       = "./kubernetes/infrastructure/configs/staging"
-    path                       = "./kubernetes/infrastructure/configs/staging"
     sync_interval_in_seconds   = 300
     depends_on                 = ["infra-controllers"]
     garbage_collection_enabled = true
@@ -90,7 +89,6 @@ resource "azurerm_kubernetes_flux_configuration" "main" {
 
   kustomizations {
     name                       = "apps"
-    path                       = "./kubernetes/apps/staging"
     path                       = "./kubernetes/apps/staging"
     sync_interval_in_seconds   = 300
     depends_on                 = ["infra-configs"]
