@@ -1,5 +1,3 @@
-# Deply n8n with external Postgres database
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -31,6 +29,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: n8n-configmap
+            - secretRef:
+                name: n8n-container-env
 
           ports:
             - containerPort: 3008
@@ -39,6 +39,9 @@ spec:
           volumeMounts:
             - mountPath: /home/node/.n8n
               name: n8n-data
+            - mountPath: /mnt/secrets-store
+              name: secrets-store
+              readOnly: true
 
       restartPolicy: Always
 
@@ -46,3 +49,9 @@ spec:
         - name: n8n-data
           persistentVolumeClaim:
             claimName: n8n-data
+        - name: secrets-store
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: n8n-secrets

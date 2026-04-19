@@ -4,6 +4,8 @@ namespace: n8n
 resources:
   - namespace.yaml
   - deployment.yaml
+  - ingress.yaml
   - storage.yaml
   - configmap.yaml
+  - secrets.yaml
   - service.yaml
