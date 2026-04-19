@@ -12,4 +12,4 @@ patches:
         value: "ba750c78-ea9e-4964-acab-df8e9351d0c6"
       - op: replace
         path: /spec/parameters/tenantId
-        value: "6c0d1498-a808-4d41-a865-fdebeb412738"
+        value: "a591ace9-c2a4-491e-8153-9f9ae2cbee79"

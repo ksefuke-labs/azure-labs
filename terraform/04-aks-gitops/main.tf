@@ -18,8 +18,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "aks" {
-  name     = "rg-cloud-course-aks"
-  location = "North Europe"
+  name     = "rg-aks-test-staging"
+  location = "UK West"
 }
 
 resource "azurerm_kubernetes_cluster" "main" {
@@ -27,7 +27,7 @@ resource "azurerm_kubernetes_cluster" "main" {
   location            = azurerm_resource_group.aks.location
   resource_group_name = azurerm_resource_group.aks.name
   dns_prefix          = "staging"
-  kubernetes_version  = "1.32.0"
+  kubernetes_version  = "1.34.0"
 
   default_node_pool {
     name       = "default"
