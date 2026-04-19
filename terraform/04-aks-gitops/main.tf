@@ -69,7 +69,7 @@ resource "azurerm_kubernetes_flux_configuration" "main" {
     reference_type  = "branch"
     reference_value = "main"
 
-    ssh_private_key_base64 = base64encode(file("~/.ssh/azure-labs.pub"))
+    ssh_private_key_base64 = base64encode(file("~/.ssh/azure-labs"))
   }
 
   kustomizations {
