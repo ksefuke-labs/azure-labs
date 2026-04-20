@@ -6,7 +6,7 @@ patches:
   - target:
       kind: SecretProviderClass
       name: customer1-secrets
-  - patch: |
+    patch: |
       - op: replace
         path: /spec/parameters/userAssignedIdentityID
         value: "0095eecc-b256-469a-989f-5f250d201c4a"
