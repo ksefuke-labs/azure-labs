@@ -5,12 +5,12 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: traefik
+  releaseName: traefik
   interval: 30m
   chart:
     spec:
       chart: traefik
       version: "39.0.7"
-      releaseName: traefik
       sourceRef:
         kind: HelmRepository
         name: traefik
