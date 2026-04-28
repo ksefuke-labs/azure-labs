@@ -15,6 +15,13 @@ spec:
         name: traefik
         namespace: flux-system
       interval: 12h
-  install:
-    createNamespace: true
-  values: {}
+  values:
+    fullnameOverride: traefik
+    ingressClass:
+      enabled: true
+      isDefaultClass: true
+    providers:
+      kubernetesCRD:
+        enabled: true
+      kubernetesIngress:
+        enabled: true
