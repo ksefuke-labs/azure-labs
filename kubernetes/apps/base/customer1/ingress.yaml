@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: customer1-ingress
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
-  ingressClassName: traefik-traefix
+  ingressClassName: traefik
   tls:
     - hosts:
         - customer1.apollo.ksefuke-labs.com
