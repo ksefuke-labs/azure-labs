@@ -10,18 +10,19 @@ spec:
     spec:
       chart: traefik
       version: "39.0.7"
+      releaseName: traefik
       sourceRef:
         kind: HelmRepository
         name: traefik
         namespace: flux-system
       interval: 12h
+  install:
+    createNamespace: true
   values:
-    fullnameOverride: traefik
     ingressClass:
       enabled: true
       isDefaultClass: true
+      name: traefik             # ← Explicitly set IngressClass name
     providers:
-      kubernetesCRD:
-        enabled: true
       kubernetesIngress:
-        enabled: true
+        ingressClass: traefik
