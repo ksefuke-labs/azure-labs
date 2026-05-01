@@ -5,12 +5,11 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: traefik
-  releaseName: traefik
   interval: 30m
   chart:
     spec:
       chart: traefik
-      version: "39.0.7"
+      version: "37.4.0"
       sourceRef:
         kind: HelmRepository
         name: traefik
@@ -18,11 +17,4 @@ spec:
       interval: 12h
   install:
     createNamespace: true
-  values:
-    ingressClass:
-      enabled: true
-      isDefaultClass: true
-      name: traefik
-    providers:
-      kubernetesIngress:
-        ingressClass: traefik
+  values: {}

@@ -1,28 +1,22 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: traefik
+  name: cert-manager
   namespace: flux-system
 spec:
-  targetNamespace: traefik
-  releaseName: traefik
+  targetNamespace: cert-manager
   interval: 30m
   chart:
     spec:
-      chart: traefik
-      version: "39.0.7"
+      chart: cert-manager
+      version: "v1.19.1"
       sourceRef:
         kind: HelmRepository
-        name: traefik
+        name: jetstack
         namespace: flux-system
       interval: 12h
   install:
     createNamespace: true
   values:
-    ingressClass:
+    crds:
       enabled: true
-      isDefaultClass: true
-      name: traefik
-    providers:
-      kubernetesIngress:
-        ingressClass: traefik
