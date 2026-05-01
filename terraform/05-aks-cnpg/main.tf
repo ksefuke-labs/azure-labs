@@ -30,9 +30,10 @@ resource "azurerm_kubernetes_cluster" "main" {
   kubernetes_version  = "1.34.0"
 
   default_node_pool {
-    name       = "default"
-    node_count = 2
-    vm_size    = "Standard_D2ps_v6"
+    name                 = "default"
+    orchestrator_version = "1.34.0"
+    node_count           = 2
+    vm_size              = "Standard_D2ps_v6"
   }
 
   identity {
